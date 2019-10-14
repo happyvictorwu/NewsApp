@@ -8,6 +8,38 @@
 
 #import "ViewController.h"
 
+@interface TestView : UIView
+
+@end
+
+@implementation TestView
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)willMoveToSuperview:(nullable UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+}
+
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+}
+
+- (void)willMoveToWindow:(nullable UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+}
+
+- (void)didMoveToWindow {
+    [super didMoveToWindow];
+}
+
+@end
+
 @interface ViewController ()
 
 @end
@@ -17,18 +49,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    UIView *view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor redColor];
-    view.frame = CGRectMake(100, 100, 100, 100); // frame是相对于父视图的位置
     
-    UIView *view2 = [[UIView alloc] init];
-    view2.backgroundColor = [UIColor greenColor];
-    view2.frame = CGRectMake(150, 150, 100, 100);
+    TestView *view = [[TestView alloc] init];
+    view.backgroundColor = [UIColor greenColor];
+    view.frame = CGRectMake(150, 150, 100, 100);
     
-    // view2 在 view的上面，因为是栈结构。 逐渐压栈，显示的是栈顶的View
     [self.view addSubview:view];
-    [self.view addSubview:view2];
 }
 
 
