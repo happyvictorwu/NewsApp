@@ -13,15 +13,11 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-    
-    UITabBarController *tabbarController = [[UITabBarController alloc] init];
 
     ViewController *viewController = [[ViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-
-    navigationController.tabBarItem.title = @"新闻";
-    navigationController.tabBarItem.image = [UIImage imageNamed:@"page"];
-    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
+    viewController.tabBarItem.title = @"新闻";
+    viewController.tabBarItem.image = [UIImage imageNamed:@"page"];
+    viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
 
     UIViewController *controller2 = [[UIViewController alloc] init];
     controller2.view.backgroundColor = [UIColor yellowColor];
@@ -41,9 +37,12 @@
     controller4.tabBarItem.image = [UIImage imageNamed:@"home"];
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"home_selected"];
 
-    [tabbarController setViewControllers:@[navigationController, controller2, controller3, controller4]];
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
 
-    self.window.rootViewController = tabbarController;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 }
 
