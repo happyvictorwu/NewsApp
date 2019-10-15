@@ -1,4 +1,5 @@
 #import "SceneDelegate.h"
+#import "ViewController.h"
 
 @interface SceneDelegate ()
 
@@ -12,13 +13,15 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
+    
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
 
-    UIViewController *controller1 = [[UIViewController alloc] init];
-    controller1.view.backgroundColor = [UIColor redColor];
-    controller1.tabBarItem.title = @"新闻";
-    controller1.tabBarItem.image = [UIImage imageNamed:@"page"];
-    controller1.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
+    ViewController *viewController = [[ViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+
+    navigationController.tabBarItem.title = @"新闻";
+    navigationController.tabBarItem.image = [UIImage imageNamed:@"page"];
+    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
 
     UIViewController *controller2 = [[UIViewController alloc] init];
     controller2.view.backgroundColor = [UIColor yellowColor];
@@ -38,7 +41,7 @@
     controller4.tabBarItem.image = [UIImage imageNamed:@"home"];
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"home_selected"];
 
-    [tabbarController setViewControllers:@[controller1, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[navigationController, controller2, controller3, controller4]];
 
     self.window.rootViewController = tabbarController;
     [self.window makeKeyAndVisible];
