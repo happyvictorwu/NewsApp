@@ -1,7 +1,7 @@
 #import "SceneDelegate.h"
 #import "ViewController.h"
 
-@interface SceneDelegate ()
+@interface SceneDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -40,6 +40,8 @@
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
 
+    tabbarController.delegate = self;
+
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
 
     self.window.rootViewController = navigationController;
@@ -72,6 +74,11 @@
     // Called as the scene transitions from the foreground to the background.
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
+}
+
+// MARK: - Delegate Method
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"did select");
 }
 
 @end
