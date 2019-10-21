@@ -15,6 +15,8 @@
 @property (nonatomic, strong, readwrite) UILabel *commentLabel;
 @property (nonatomic, strong, readwrite) UILabel *timeLabel;
 
+@property (nonatomic, strong, readwrite) UIImageView *rightImageView;  // 不要命名成imageView会跟系统重名
+
 @end
 
 @implementation YXNormalTableViewCell
@@ -54,6 +56,13 @@
             self.timeLabel.textColor = [UIColor grayColor];
             self.timeLabel;
         })];
+
+        [self.contentView addSubview:({
+            self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(330, 15, 70, 70)];
+            self.rightImageView.backgroundColor = [UIColor redColor];
+            self.rightImageView.contentMode = UIViewContentModeScaleAspectFit;
+            self.rightImageView;
+        })];
     }
     return self;
 }
@@ -73,6 +82,8 @@
     [self.timeLabel sizeToFit];
     //commentLabel的右边＋15
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+
+    self.rightImageView.image = [UIImage imageNamed:@"testScale"];
 }
 
 @end
