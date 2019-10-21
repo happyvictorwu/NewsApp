@@ -1,6 +1,7 @@
 #import "SceneDelegate.h"
 #import "ViewController.h"
 #import "YXVideoViewController.h"
+#import "YXRecommendViewController.h"
 
 @interface SceneDelegate ()<UITabBarControllerDelegate>
 
@@ -21,13 +22,8 @@
     viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
 
     YXVideoViewController *videoController = [[YXVideoViewController alloc] init];
-    
 
-    UIViewController *controller3 = [[UIViewController alloc] init];
-    controller3.view.backgroundColor = [UIColor greenColor];
-    controller3.tabBarItem.title = @"推荐";
-    controller3.tabBarItem.image = [UIImage imageNamed:@"like"];
-    controller3.tabBarItem.selectedImage = [UIImage imageNamed:@"like_selected"];
+    YXRecommendViewController *recommendController = [[YXRecommendViewController alloc] init];
 
     UIViewController *controller4 = [[UIViewController alloc] init];
     controller4.view.backgroundColor = [UIColor lightGrayColor];
@@ -36,7 +32,7 @@
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"home_selected"];
 
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    [tabbarController setViewControllers:@[viewController, videoController, controller3, controller4]];
+    [tabbarController setViewControllers:@[viewController, videoController, recommendController, controller4]];
 
     tabbarController.delegate = self;
 

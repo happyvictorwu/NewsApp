@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72048C51235D8BAE00E0FB70 /* YXVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72048C50235D8BAE00E0FB70 /* YXVideoViewController.m */; };
+		72048C54235D995D00E0FB70 /* YXRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72048C53235D995D00E0FB70 /* YXRecommendViewController.m */; };
 		72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7002353F2530051ADCB /* AppDelegate.m */; };
 		72A9A7042353F2530051ADCB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7032353F2530051ADCB /* SceneDelegate.m */; };
 		72A9A7072353F2530051ADCB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7062353F2530051ADCB /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		72048C4F235D8BAE00E0FB70 /* YXVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXVideoViewController.h; sourceTree = "<group>"; };
 		72048C50235D8BAE00E0FB70 /* YXVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXVideoViewController.m; sourceTree = "<group>"; };
+		72048C52235D995D00E0FB70 /* YXRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXRecommendViewController.h; sourceTree = "<group>"; };
+		72048C53235D995D00E0FB70 /* YXRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXRecommendViewController.m; sourceTree = "<group>"; };
 		72A9A6FC2353F2520051ADCB /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A9A6FF2353F2530051ADCB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72A9A7002353F2530051ADCB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				72A9A7112353F2560051ADCB /* main.m */,
 				72048C4F235D8BAE00E0FB70 /* YXVideoViewController.h */,
 				72048C50235D8BAE00E0FB70 /* YXVideoViewController.m */,
+				72048C52235D995D00E0FB70 /* YXRecommendViewController.h */,
+				72048C53235D995D00E0FB70 /* YXRecommendViewController.m */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72048C54235D995D00E0FB70 /* YXRecommendViewController.m in Sources */,
 				72A9A7072353F2530051ADCB /* ViewController.m in Sources */,
 				72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */,
 				72A9A7122353F2560051ADCB /* main.m in Sources */,
