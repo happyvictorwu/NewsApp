@@ -39,7 +39,7 @@
 
 @end
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDataSource>
 
 @end
 
@@ -59,6 +59,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self;
     [self.view addSubview:tableView];
 }
 
@@ -78,5 +79,20 @@
     [super viewDidDisappear:animated];
 }
 
+// 返回整个tableview有几个cell
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+// cell长成什么样子
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 使用系统提供的样式Style  (UITableViewCellStyleSubtitle)
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    // 系统提供样式的属性
+    cell.textLabel.text = @"主标题";
+    cell.detailTextLabel.text = @"副标题";
+    cell.imageView.image = [UIImage imageNamed:@"video"];
+    return cell;
+}
 
 @end
