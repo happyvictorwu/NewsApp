@@ -30,6 +30,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];  // 创建UICollectionView一定要给一个flowLayout
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width - 10) / 2, 300);
+
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
@@ -39,6 +43,16 @@
     [self.view addSubview:collectionView];
 }
 
+// MARK: - UICollectionViewDelegate
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.item % 3 == 0) {
+        return CGSizeMake(self.view.frame.size.width, 100);
+    } else {
+        return CGSizeMake((self.view.frame.size.width - 10) / 2, 300);
+    }
+}
+
+// MARK: - UICollectionViewDataSource 代理方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 200;
 }
