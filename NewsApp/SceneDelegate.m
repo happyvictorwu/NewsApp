@@ -1,5 +1,6 @@
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "YXVideoViewController.h"
 
 @interface SceneDelegate ()<UITabBarControllerDelegate>
 
@@ -19,11 +20,8 @@
     viewController.tabBarItem.image = [UIImage imageNamed:@"page"];
     viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
 
-    UIViewController *controller2 = [[UIViewController alloc] init];
-    controller2.view.backgroundColor = [UIColor yellowColor];
-    controller2.tabBarItem.title = @"视频";
-    controller2.tabBarItem.image = [UIImage imageNamed:@"video"];
-    controller2.tabBarItem.selectedImage = [UIImage imageNamed:@"video_selected"];
+    YXVideoViewController *videoController = [[YXVideoViewController alloc] init];
+    
 
     UIViewController *controller3 = [[UIViewController alloc] init];
     controller3.view.backgroundColor = [UIColor greenColor];
@@ -38,7 +36,7 @@
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"home_selected"];
 
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[viewController, videoController, controller3, controller4]];
 
     tabbarController.delegate = self;
 
