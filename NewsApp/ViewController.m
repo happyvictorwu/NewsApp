@@ -58,13 +58,8 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
 
-    TestView *testview = [[TestView alloc] init];
-    testview.backgroundColor = [UIColor greenColor];
-    testview.frame = CGRectMake(150, 150, 100, 100);
-    [self.view addSubview:testview];
-
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
-    [testview addGestureRecognizer:tapGesture];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,14 +78,5 @@
     [super viewDidDisappear:animated];
 }
 
-- (void)pushController {
-    UIViewController *viewcontroller = [[UIViewController alloc] init];
-    viewcontroller.view.backgroundColor = [UIColor whiteColor];
-
-    viewcontroller.navigationItem.title = @"内容";
-    viewcontroller.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
-
-    [self.navigationController pushViewController:viewcontroller animated:YES];
-}
 
 @end
