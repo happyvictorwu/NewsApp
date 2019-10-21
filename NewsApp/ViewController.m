@@ -39,7 +39,7 @@
 
 @end
 
-@interface ViewController ()<UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -60,6 +60,7 @@
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.dataSource = self;
+    tableView.delegate = self;
     [self.view addSubview:tableView];
 }
 
@@ -79,6 +80,19 @@
     [super viewDidDisappear:animated];
 }
 
+// MARK: - UITableViewDelegate代理方法
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {  // 设置每个row的高度，即TableView的间距高度
+    return 100;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {  // 通过indexPath来告诉tableView用户点的其中第几个行。每一个行中有cell(展示)
+    UIViewController *controller = [[UIViewController alloc] init];
+    controller.view.backgroundColor = [UIColor whiteColor];  // 不设置颜色跳转y界面的时候会卡顿
+    controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+// MARK: - UITableViewDataSource代理方法
 // 返回整个tableview有几个cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
@@ -94,7 +108,7 @@
 
     // 若系统回收池取到了，就用回收的cell展示就行
     // 系统提供样式的属性
-    cell.textLabel.text = @"主标题";
+    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@", @(indexPath.row)];  // 只有一个Section？ 指定row就可以了
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"video"];
     return cell;
