@@ -92,6 +92,11 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+// UITableViewDelegate父Delegate UIScrollViewDelegate的代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"scrollViewDidScroll - 用户正在使用手势拖拽");
+}
+
 // MARK: - UITableViewDataSource代理方法
 // 返回整个tableview有几个cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
