@@ -10,6 +10,7 @@
 		72048C51235D8BAE00E0FB70 /* YXVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72048C50235D8BAE00E0FB70 /* YXVideoViewController.m */; };
 		72048C54235D995D00E0FB70 /* YXRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72048C53235D995D00E0FB70 /* YXRecommendViewController.m */; };
 		72048C57235DA79900E0FB70 /* YXNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72048C56235DA79900E0FB70 /* YXNormalTableViewCell.m */; };
+		728F4B98235EDD2000FA2811 /* YXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 728F4B97235EDD2000FA2811 /* YXDetailViewController.m */; };
 		72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7002353F2530051ADCB /* AppDelegate.m */; };
 		72A9A7042353F2530051ADCB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7032353F2530051ADCB /* SceneDelegate.m */; };
 		72A9A7072353F2530051ADCB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7062353F2530051ADCB /* ViewController.m */; };
@@ -26,6 +27,8 @@
 		72048C53235D995D00E0FB70 /* YXRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXRecommendViewController.m; sourceTree = "<group>"; };
 		72048C55235DA79900E0FB70 /* YXNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXNormalTableViewCell.h; sourceTree = "<group>"; };
 		72048C56235DA79900E0FB70 /* YXNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXNormalTableViewCell.m; sourceTree = "<group>"; };
+		728F4B96235EDD2000FA2811 /* YXDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXDetailViewController.h; sourceTree = "<group>"; };
+		728F4B97235EDD2000FA2811 /* YXDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXDetailViewController.m; sourceTree = "<group>"; };
 		72A9A6FC2353F2520051ADCB /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A9A6FF2353F2530051ADCB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72A9A7002353F2530051ADCB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				72048C53235D995D00E0FB70 /* YXRecommendViewController.m */,
 				72048C55235DA79900E0FB70 /* YXNormalTableViewCell.h */,
 				72048C56235DA79900E0FB70 /* YXNormalTableViewCell.m */,
+				728F4B96235EDD2000FA2811 /* YXDetailViewController.h */,
+				728F4B97235EDD2000FA2811 /* YXDetailViewController.m */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */,
 				72A9A7122353F2560051ADCB /* main.m in Sources */,
 				72048C51235D8BAE00E0FB70 /* YXVideoViewController.m in Sources */,
+				728F4B98235EDD2000FA2811 /* YXDetailViewController.m in Sources */,
 				72A9A7042353F2530051ADCB /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

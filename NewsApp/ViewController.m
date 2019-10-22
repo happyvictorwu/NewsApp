@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YXNormalTableViewCell.h"
+#import "YXDetailViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -40,8 +41,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {  // 通过indexPath来告诉tableView用户点的其中第几个行。每一个行中有cell(展示)
-    UIViewController *controller = [[UIViewController alloc] init];
-    controller.view.backgroundColor = [UIColor whiteColor];  // 不设置颜色跳转y界面的时候会卡顿
+    YXDetailViewController *controller = [[YXDetailViewController alloc] init];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];
 }
