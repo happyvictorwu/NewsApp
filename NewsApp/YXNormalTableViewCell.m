@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong, readwrite) UIImageView *rightImageView;  // 不要命名成imageView会跟系统重名
 
+@property (nonatomic, strong, readwrite) UIButton *deleteButton;
+
 @end
 
 @implementation YXNormalTableViewCell
@@ -62,6 +64,14 @@
             self.rightImageView.backgroundColor = [UIColor redColor];
             self.rightImageView.contentMode = UIViewContentModeScaleAspectFit;
             self.rightImageView;
+        })];
+
+        [self.contentView addSubview:({
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(290, 80, 30, 20)];
+            [self.deleteButton setTitle:@"x" forState:UIControlStateNormal];
+            [self.deleteButton setTitle:@"v" forState:UIControlStateHighlighted];
+            self.deleteButton.backgroundColor = [UIColor blueColor];
+            self.deleteButton;
         })];
     }
     return self;
