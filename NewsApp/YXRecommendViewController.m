@@ -8,7 +8,7 @@
 
 #import "YXRecommendViewController.h"
 
-@interface YXRecommendViewController ()<UIScrollViewDelegate>
+@interface YXRecommendViewController ()<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @end
 
@@ -40,6 +40,14 @@
         [scrollView addSubview:({
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(scrollView.bounds.size.width * i, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
             view.backgroundColor = [colorArray objectAtIndex:i];
+            [view addSubview:({
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+                view.backgroundColor = [UIColor yellowColor];
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
+                tapGesture.delegate = self;
+                [view addGestureRecognizer:tapGesture];
+                view;
+            })];
             view;
         })];
     }
@@ -59,6 +67,13 @@
 */
 
 // MARK: - Delegate
+
+// UIGestureRecognizerDelegate
+//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+//    return NO;  // 禁用手势
+//}
+
+// UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //    NSLog(@"scrollViewDidScroll - 用户在手势操作的途中%@", @(scrollView.contentOffset.x));
 }
@@ -77,6 +92,10 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSLog(@"scrollViewDidEndDecelerating - 用户手势减速结束的时候");
+}
+
+- (void)viewClick {
+    NSLog(@"viewClick");
 }
 
 @end
