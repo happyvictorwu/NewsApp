@@ -11,9 +11,15 @@
 
 @interface YXDetailViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
+@property (nonatomic, strong, readwrite) UIProgressView *progressView;  // 添加一个进度条
 @end
 
 @implementation YXDetailViewController
+
+- (void)dealloc {
+    // 在观察者self自己销毁的时候要移除监听
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,7 +30,15 @@
         self.webView;
     })];
 
+    [self.view addSubview:({
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 20)];
+        self.progressView;
+    })];
+
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.bilibili.com"]]];
+
+    // webView添加一个观察者（self）监听webView的estimatedProgress属性的新变化
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 // MARK: - WKNavigationDelegate
@@ -34,6 +48,12 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {  // 加载成功
     NSLog(@"didFinishNavigation");
+}
+
+// 监听webView的回调
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context {
+    self.progressView.progress = self.webView.estimatedProgress;
+    NSLog(@"");
 }
 
 @end
