@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "YXNormalTableViewCell.h"
 #import "YXDetailViewController.h"
+#import "YXDeleteCellView.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, YXNormalTableViewCellDelegate>
+@property (nonatomic, strong, readwrite) UITableView *tableView;
+@property (nonatomic, strong, readwrite) NSMutableArray *dataArray;  // irregular
 @end
 
 @implementation ViewController
@@ -20,6 +22,10 @@
 {
     self = [super init];
     if (self) {
+        _dataArray = @[].mutableCopy;
+        for (int i = 0; i < 20; i++) {
+            [_dataArray addObject:@(i)];
+        }
     }
     return self;
 }
@@ -29,10 +35,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
 
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
 }
 
 // MARK: - UITableViewDelegate代理方法
@@ -54,7 +60,7 @@
 // MARK: - UITableViewDataSource代理方法
 // 返回整个tableview有几个cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return _dataArray.count;
 }
 
 // cell长成什么样子
@@ -63,11 +69,32 @@
 
     if (!cell) {  // 若没有cell,创建一个新的cell。
         cell = [[YXNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+        cell.delegate = self;
     }
 
     [cell layoutTableViewCell];
 
     return cell;
+}
+
+// MARK: - 实现自定义的YXNormalTableViewCellDelegate
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
+    NSLog(@"代理方法 - 点击了删除按钮");
+    YXDeleteCellView *deleteView = [[YXDeleteCellView alloc] initWithFrame:self.view.bounds];
+
+    // convert relative position to absolute position of screen
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+
+    __weak typeof(self) wself = self;
+    [deleteView showDeleteViewFromPoint:rect.origin clickBlock:^{
+        __strong typeof(self) strongSelf = wself;
+
+        // Because of independent of array elements, so any element can be deleted. the most important thing is number.
+        [strongSelf.dataArray removeLastObject];
+
+        // System offer the method to delete the specific cell from the UITableView
+        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
 }
 
 @end

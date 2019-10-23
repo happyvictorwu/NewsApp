@@ -98,7 +98,10 @@
 }
 
 - (void)deleteButtonClick {
-    NSLog(@"deleteButtonClick");
+    // 因为这里这里的Delegate是可选的，所以要看看delegate是否实现了对应的方法
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableViewCell:clickDeleteButton:)]) {
+        [self.delegate tableViewCell:self clickDeleteButton:self.deleteButton];  // pass TVCell and Bt as parameters to the delegate object
+    }
 }
 
 @end
