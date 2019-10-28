@@ -10,10 +10,12 @@
 #import "YXNormalTableViewCell.h"
 #import "YXDetailViewController.h"
 #import "YXDeleteCellView.h"
+#import "YXListLoader.h"
 
 @interface YXNewsViewController ()<UITableViewDataSource, UITableViewDelegate, YXNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) NSMutableArray *dataArray;  // irregular
+@property (nonatomic, strong, readwrite) YXListLoader *listLoader;
 @end
 
 @implementation YXNewsViewController
@@ -40,6 +42,9 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
+    
+    self.listLoader = [[YXListLoader alloc] init];
+    [self.listLoader loadListData];
 }
 
 // MARK: - UITableViewDelegate

@@ -19,6 +19,7 @@
 		72A9A70C2353F2560051ADCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A70B2353F2560051ADCB /* Assets.xcassets */; };
 		72A9A70F2353F2560051ADCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A70D2353F2560051ADCB /* LaunchScreen.storyboard */; };
 		72A9A7122353F2560051ADCB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7112353F2560051ADCB /* main.m */; };
+		72EC248F2366CB8600C451F8 /* YXListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC248E2366CB8600C451F8 /* YXListLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		72A9A70E2353F2560051ADCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72A9A7102353F2560051ADCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72A9A7112353F2560051ADCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72EC248D2366CB8600C451F8 /* YXListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXListLoader.h; sourceTree = "<group>"; };
+		72EC248E2366CB8600C451F8 /* YXListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXListLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,7 @@
 		72A9A6FE2353F2520051ADCB /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				72EC24902366CB9200C451F8 /* loader */,
 				72EC248A2366C00B00C451F8 /* NewsController */,
 				72A9A6FF2353F2530051ADCB /* AppDelegate.h */,
 				72A9A7002353F2530051ADCB /* AppDelegate.m */,
@@ -123,6 +127,15 @@
 			children = (
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		72EC24902366CB9200C451F8 /* loader */ = {
+			isa = PBXGroup;
+			children = (
+				72EC248D2366CB8600C451F8 /* YXListLoader.h */,
+				72EC248E2366CB8600C451F8 /* YXListLoader.m */,
+			);
+			path = loader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +211,7 @@
 				728F4B9B235EFEC900FA2811 /* YXDeleteCellView.m in Sources */,
 				72048C57235DA79900E0FB70 /* YXNormalTableViewCell.m in Sources */,
 				72048C54235D995D00E0FB70 /* YXRecommendViewController.m in Sources */,
+				72EC248F2366CB8600C451F8 /* YXListLoader.m in Sources */,
 				72A9A7072353F2530051ADCB /* YXNewsViewController.m in Sources */,
 				72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */,
 				72A9A7122353F2560051ADCB /* main.m in Sources */,
