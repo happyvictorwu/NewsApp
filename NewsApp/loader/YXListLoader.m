@@ -15,6 +15,10 @@
     NSURL *listURL = [NSURL URLWithString:urlString];
 
     __unused NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:listRequest];
 
     NSLog(@"");
 }
