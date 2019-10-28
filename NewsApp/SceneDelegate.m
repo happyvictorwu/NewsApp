@@ -1,5 +1,5 @@
 #import "SceneDelegate.h"
-#import "ViewController.h"
+#import "YXNewsViewController.h"
 #import "YXVideoViewController.h"
 #import "YXRecommendViewController.h"
 
@@ -16,23 +16,23 @@
 
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
 
-    ViewController *viewController = [[ViewController alloc] init];
-    viewController.tabBarItem.title = @"新闻";
-    viewController.tabBarItem.image = [UIImage imageNamed:@"page"];
-    viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
+    YXNewsViewController *newsViewController = [[YXNewsViewController alloc] init];
+    newsViewController.tabBarItem.title = @"新闻";
+    newsViewController.tabBarItem.image = [UIImage imageNamed:@"page"];
+    newsViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"page_selected"];
 
     YXVideoViewController *videoController = [[YXVideoViewController alloc] init];
 
     YXRecommendViewController *recommendController = [[YXRecommendViewController alloc] init];
 
-    UIViewController *controller4 = [[UIViewController alloc] init];
-    controller4.view.backgroundColor = [UIColor lightGrayColor];
-    controller4.tabBarItem.title = @"我的";
-    controller4.tabBarItem.image = [UIImage imageNamed:@"home"];
-    controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"home_selected"];
+    UIViewController *mineViewController = [[UIViewController alloc] init];
+    mineViewController.view.backgroundColor = [UIColor lightGrayColor];
+    mineViewController.tabBarItem.title = @"我的";
+    mineViewController.tabBarItem.image = [UIImage imageNamed:@"home"];
+    mineViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"home_selected"];
 
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    [tabbarController setViewControllers:@[viewController, videoController, recommendController, controller4]];
+    [tabbarController setViewControllers:@[newsViewController, videoController, recommendController, mineViewController]];
 
     tabbarController.delegate = self;
 

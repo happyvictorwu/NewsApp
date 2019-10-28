@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YXNewsViewController.h
 //  NewsApp
 //
 //  Created by Victor Wu on 2019/10/14.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+/// News Tab corresponds to the Controller in First Page.
+@interface YXNewsViewController : UIViewController
 
 @end

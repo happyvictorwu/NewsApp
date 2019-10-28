@@ -1,23 +1,24 @@
 //
-//  ViewController.m
+//  YXNewsViewController.m
 //  NewsApp
 //
 //  Created by Victor Wu on 2019/10/14.
 //  Copyright © 2019 Victor Wu. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "YXNewsViewController.h"
 #import "YXNormalTableViewCell.h"
 #import "YXDetailViewController.h"
 #import "YXDeleteCellView.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, YXNormalTableViewCellDelegate>
+@interface YXNewsViewController ()<UITableViewDataSource, UITableViewDelegate, YXNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) NSMutableArray *dataArray;  // irregular
 @end
 
-@implementation ViewController
+@implementation YXNewsViewController
 
+// MARK: - life cycle
 - (instancetype)init
 {
     self = [super init];
@@ -41,7 +42,7 @@
     [self.view addSubview:_tableView];
 }
 
-// MARK: - UITableViewDelegate代理方法
+// MARK: - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {  // 设置每个row的高度，即TableView的间距高度
     return 100;
 }

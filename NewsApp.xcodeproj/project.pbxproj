@@ -14,7 +14,7 @@
 		728F4B9B235EFEC900FA2811 /* YXDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 728F4B9A235EFEC900FA2811 /* YXDeleteCellView.m */; };
 		72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7002353F2530051ADCB /* AppDelegate.m */; };
 		72A9A7042353F2530051ADCB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7032353F2530051ADCB /* SceneDelegate.m */; };
-		72A9A7072353F2530051ADCB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7062353F2530051ADCB /* ViewController.m */; };
+		72A9A7072353F2530051ADCB /* YXNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7062353F2530051ADCB /* YXNewsViewController.m */; };
 		72A9A70A2353F2530051ADCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A7082353F2530051ADCB /* Main.storyboard */; };
 		72A9A70C2353F2560051ADCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A70B2353F2560051ADCB /* Assets.xcassets */; };
 		72A9A70F2353F2560051ADCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A70D2353F2560051ADCB /* LaunchScreen.storyboard */; };
@@ -37,8 +37,8 @@
 		72A9A7002353F2530051ADCB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		72A9A7022353F2530051ADCB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		72A9A7032353F2530051ADCB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		72A9A7052353F2530051ADCB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		72A9A7062353F2530051ADCB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		72A9A7052353F2530051ADCB /* YXNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXNewsViewController.h; sourceTree = "<group>"; };
+		72A9A7062353F2530051ADCB /* YXNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXNewsViewController.m; sourceTree = "<group>"; };
 		72A9A7092353F2530051ADCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72A9A70B2353F2560051ADCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72A9A70E2353F2560051ADCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,12 +76,11 @@
 		72A9A6FE2353F2520051ADCB /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				72EC248A2366C00B00C451F8 /* NewsController */,
 				72A9A6FF2353F2530051ADCB /* AppDelegate.h */,
 				72A9A7002353F2530051ADCB /* AppDelegate.m */,
 				72A9A7022353F2530051ADCB /* SceneDelegate.h */,
 				72A9A7032353F2530051ADCB /* SceneDelegate.m */,
-				72A9A7052353F2530051ADCB /* ViewController.h */,
-				72A9A7062353F2530051ADCB /* ViewController.m */,
 				72A9A7082353F2530051ADCB /* Main.storyboard */,
 				72A9A70B2353F2560051ADCB /* Assets.xcassets */,
 				72A9A70D2353F2560051ADCB /* LaunchScreen.storyboard */,
@@ -91,14 +90,39 @@
 				72048C50235D8BAE00E0FB70 /* YXVideoViewController.m */,
 				72048C52235D995D00E0FB70 /* YXRecommendViewController.h */,
 				72048C53235D995D00E0FB70 /* YXRecommendViewController.m */,
+			);
+			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		72EC248A2366C00B00C451F8 /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				72EC248C2366C06B00C451F8 /* List */,
+				72EC248B2366C05F00C451F8 /* Detail */,
+				72A9A7052353F2530051ADCB /* YXNewsViewController.h */,
+				72A9A7062353F2530051ADCB /* YXNewsViewController.m */,
 				72048C55235DA79900E0FB70 /* YXNormalTableViewCell.h */,
 				72048C56235DA79900E0FB70 /* YXNormalTableViewCell.m */,
-				728F4B96235EDD2000FA2811 /* YXDetailViewController.h */,
-				728F4B97235EDD2000FA2811 /* YXDetailViewController.m */,
 				728F4B99235EFEC900FA2811 /* YXDeleteCellView.h */,
 				728F4B9A235EFEC900FA2811 /* YXDeleteCellView.m */,
 			);
-			path = NewsApp;
+			path = NewsController;
+			sourceTree = "<group>";
+		};
+		72EC248B2366C05F00C451F8 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				728F4B96235EDD2000FA2811 /* YXDetailViewController.h */,
+				728F4B97235EDD2000FA2811 /* YXDetailViewController.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		72EC248C2366C06B00C451F8 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +198,7 @@
 				728F4B9B235EFEC900FA2811 /* YXDeleteCellView.m in Sources */,
 				72048C57235DA79900E0FB70 /* YXNormalTableViewCell.m in Sources */,
 				72048C54235D995D00E0FB70 /* YXRecommendViewController.m in Sources */,
-				72A9A7072353F2530051ADCB /* ViewController.m in Sources */,
+				72A9A7072353F2530051ADCB /* YXNewsViewController.m in Sources */,
 				72A9A7012353F2530051ADCB /* AppDelegate.m in Sources */,
 				72A9A7122353F2560051ADCB /* main.m in Sources */,
 				72048C51235D8BAE00E0FB70 /* YXVideoViewController.m in Sources */,

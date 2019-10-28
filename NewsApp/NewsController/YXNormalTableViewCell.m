@@ -76,7 +76,7 @@
             // setting layer
             self.deleteButton.layer.cornerRadius = 10;
             self.deleteButton.layer.masksToBounds = YES;
-            
+
             self.deleteButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
             self.deleteButton.layer.borderWidth = 2;
 
