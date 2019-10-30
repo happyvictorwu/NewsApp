@@ -8,6 +8,7 @@
 
 #import "YXListLoader.h"
 #import <AFNetworking.h>
+#import "YXListItem.h"
 
 @implementation YXListLoader
 
@@ -29,6 +30,15 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
         NSError *jsonError;
         id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];  // change to NSdata to Dictionary
+
+# warning jsonObj may not dictionary (result and data is the same), objectforkey may not a dictionary
+        NSArray *dataArray = [(NSDictionary *)[(NSDictionary *)jsonObj objectForKey:@"result"] objectForKey:@"data"];
+        NSMutableArray *listItemArray = @[].mutableCopy;
+        for (NSDictionary *info in dataArray) {
+            YXListItem *listItem = [[YXListItem alloc] init];
+            [listItem configWithDictionary:info];
+            [listItemArray addObject:listItem];
+        }
 
         NSLog(@"");
     }];

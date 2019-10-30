@@ -20,6 +20,7 @@
 		72A9A70C2353F2560051ADCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A70B2353F2560051ADCB /* Assets.xcassets */; };
 		72A9A70F2353F2560051ADCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A9A70D2353F2560051ADCB /* LaunchScreen.storyboard */; };
 		72A9A7122353F2560051ADCB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9A7112353F2560051ADCB /* main.m */; };
+		72E1CD90236980CE003BFF46 /* YXListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E1CD8F236980CE003BFF46 /* YXListItem.m */; };
 		72EC248F2366CB8600C451F8 /* YXListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC248E2366CB8600C451F8 /* YXListLoader.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		72A9A70E2353F2560051ADCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72A9A7102353F2560051ADCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72A9A7112353F2560051ADCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72E1CD8E236980CE003BFF46 /* YXListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXListItem.h; sourceTree = "<group>"; };
+		72E1CD8F236980CE003BFF46 /* YXListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXListItem.m; sourceTree = "<group>"; };
 		72EC248D2366CB8600C451F8 /* YXListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXListLoader.h; sourceTree = "<group>"; };
 		72EC248E2366CB8600C451F8 /* YXListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXListLoader.m; sourceTree = "<group>"; };
 		7ADE70264B73BDDA7DEFBFAA /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +82,6 @@
 				7ADE70264B73BDDA7DEFBFAA /* Pods-NewsApp.debug.xcconfig */,
 				AD7892E25991D85DA38216F3 /* Pods-NewsApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,7 +106,6 @@
 		72A9A6FE2353F2520051ADCB /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				72EC24902366CB9200C451F8 /* loader */,
 				72EC248A2366C00B00C451F8 /* NewsController */,
 				72A9A6FF2353F2530051ADCB /* AppDelegate.h */,
 				72A9A7002353F2530051ADCB /* AppDelegate.m */,
@@ -123,17 +124,35 @@
 			path = NewsApp;
 			sourceTree = "<group>";
 		};
-		72EC248A2366C00B00C451F8 /* NewsController */ = {
+		72E1CD8C2369803C003BFF46 /* Medel */ = {
 			isa = PBXGroup;
 			children = (
-				72EC248C2366C06B00C451F8 /* List */,
-				72EC248B2366C05F00C451F8 /* Detail */,
-				72A9A7052353F2530051ADCB /* YXNewsViewController.h */,
-				72A9A7062353F2530051ADCB /* YXNewsViewController.m */,
+				72EC248D2366CB8600C451F8 /* YXListLoader.h */,
+				72EC248E2366CB8600C451F8 /* YXListLoader.m */,
+				72E1CD8E236980CE003BFF46 /* YXListItem.h */,
+				72E1CD8F236980CE003BFF46 /* YXListItem.m */,
+			);
+			path = Medel;
+			sourceTree = "<group>";
+		};
+		72E1CD8D2369805F003BFF46 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				72048C55235DA79900E0FB70 /* YXNormalTableViewCell.h */,
 				72048C56235DA79900E0FB70 /* YXNormalTableViewCell.m */,
 				728F4B99235EFEC900FA2811 /* YXDeleteCellView.h */,
 				728F4B9A235EFEC900FA2811 /* YXDeleteCellView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72EC248A2366C00B00C451F8 /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				72E1CD8D2369805F003BFF46 /* View */,
+				72E1CD8C2369803C003BFF46 /* Medel */,
+				72EC248C2366C06B00C451F8 /* Controller */,
+				72EC248B2366C05F00C451F8 /* Detail */,
 			);
 			path = NewsController;
 			sourceTree = "<group>";
@@ -147,20 +166,13 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		72EC248C2366C06B00C451F8 /* List */ = {
+		72EC248C2366C06B00C451F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				72A9A7052353F2530051ADCB /* YXNewsViewController.h */,
+				72A9A7062353F2530051ADCB /* YXNewsViewController.m */,
 			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		72EC24902366CB9200C451F8 /* loader */ = {
-			isa = PBXGroup;
-			children = (
-				72EC248D2366CB8600C451F8 /* YXListLoader.h */,
-				72EC248E2366CB8600C451F8 /* YXListLoader.m */,
-			);
-			path = loader;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +280,7 @@
 				72A9A7122353F2560051ADCB /* main.m in Sources */,
 				72048C51235D8BAE00E0FB70 /* YXVideoViewController.m in Sources */,
 				728F4B98235EDD2000FA2811 /* YXDetailViewController.m in Sources */,
+				72E1CD90236980CE003BFF46 /* YXListItem.m in Sources */,
 				72A9A7042353F2530051ADCB /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
