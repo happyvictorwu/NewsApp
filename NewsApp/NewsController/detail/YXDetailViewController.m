@@ -12,6 +12,7 @@
 @interface YXDetailViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
 @property (nonatomic, strong, readwrite) UIProgressView *progressView;  // 添加一个进度条
+@property (nonatomic, copy, readwrite) NSString *articleUrl;  // 文章的URL网址
 @end
 
 @implementation YXDetailViewController
@@ -19,6 +20,16 @@
 - (void)dealloc {
     // 在观察者self自己销毁的时候要移除监听
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
+/// 在初始化的时候就把文章的URL给传进来，给webView展示
+/// @param urlString 文章的URL网址
+- (instancetype)initWithUrlString:(NSString *)urlString {
+    self = [super init];
+    if (self) {
+        self.articleUrl = urlString;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -35,7 +46,8 @@
         self.progressView;
     })];
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.bilibili.com"]]];
+    // 加载文章的地址
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.articleUrl]]];
 
     // webView添加一个观察者（self）监听webView的estimatedProgress属性的新变化
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];

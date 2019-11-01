@@ -152,18 +152,18 @@
 				72E1CD8D2369805F003BFF46 /* View */,
 				72E1CD8C2369803C003BFF46 /* Medel */,
 				72EC248C2366C06B00C451F8 /* Controller */,
-				72EC248B2366C05F00C451F8 /* Detail */,
+				72EC248B2366C05F00C451F8 /* detail */,
 			);
 			path = NewsController;
 			sourceTree = "<group>";
 		};
-		72EC248B2366C05F00C451F8 /* Detail */ = {
+		72EC248B2366C05F00C451F8 /* detail */ = {
 			isa = PBXGroup;
 			children = (
 				728F4B96235EDD2000FA2811 /* YXDetailViewController.h */,
 				728F4B97235EDD2000FA2811 /* YXDetailViewController.m */,
 			);
-			path = Detail;
+			path = detail;
 			sourceTree = "<group>";
 		};
 		72EC248C2366C06B00C451F8 /* Controller */ = {
