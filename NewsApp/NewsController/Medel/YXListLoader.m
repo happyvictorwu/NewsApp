@@ -21,11 +21,10 @@
     NSURLSession *session = [NSURLSession sharedSession];
 
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
-        
         NSError *jsonError;
         // 把NSdata(JSON文件的二进制流)转换成Dictionary
         id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        
+
 # warning Unsafe - jsonObj may not dictionary (result and data is the same), objectforkey may not a dictionary
         NSArray *dataArray = [(NSDictionary *)[(NSDictionary *)jsonObj objectForKey:@"result"] objectForKey:@"data"];
         NSMutableArray *listItemArray = @[].mutableCopy;
@@ -45,6 +44,11 @@
 
     [dataTask resume];
 
+    [self _getSandBoxPath];
+}
+
+- (void)_getSandBoxPath {
+    __unused NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSLog(@"");
 }
 
